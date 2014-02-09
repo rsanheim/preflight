@@ -4,6 +4,8 @@
 <dict>
     <key>Label</key>
     <string>com.robsanheim.preflight</string>
+    <key>StandardOutPath</key>
+    <string>/var/log/preflight.log</string>
     <key>ProgramArguments</key>
     <array>
         <string>/Users/rsanheim/src/preflight/preflight</string>
