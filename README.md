@@ -1,5 +1,10 @@
 # preflight
 
+Preflight keeps your git repos up to date in the background.
+
+It can also do other common housekeeping tasks for you, in the background,
+as you see fit (soon).
+
 ## Setup (mac)
 
 Use launchd to run every five minutes on Mac:
