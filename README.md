@@ -17,7 +17,7 @@ Use launchd to run every five minutes on Mac:
 
 Verify its running:
 
-    launchclt list | grep sanheim
+    launchclt list | grep preflight
 
 
 ## Uninstall
