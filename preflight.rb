@@ -8,6 +8,7 @@ require 'pathname'
 
 dir = Pathname("~/github/github").expand_path
 command = "git --git-dir=#{dir}/.git --work-tree=#{dir} fetch"
-puts command
-result = system command
-puts result
+out = command
+success = system command
+result = success ? "success" : "error"
+puts "#{result} => #{command}"
