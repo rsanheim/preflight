@@ -11,6 +11,6 @@
         <string>/Users/rsanheim/src/preflight/preflight.rb</string>
     </array>
     <key>StartInterval</key>
-    <integer>300</integer>
+    <integer>1200</integer> # 20 minutes
 </dict>
 </plist>
