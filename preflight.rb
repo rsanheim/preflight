@@ -6,7 +6,7 @@
 
 require 'pathname'
 
-dir = Pathname("~/github/github").expand_path
+dir = Pathname("~/src/3dna/nbuild").expand_path
 command = "git --git-dir=#{dir}/.git --work-tree=#{dir} fetch"
 out = command
 success = system command
