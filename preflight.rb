@@ -3,12 +3,27 @@
 #/ usage: ./preflight
 #/
 
+require "pathname"
+require "yaml"
 
-require 'pathname'
+class Preflight
+  def root_dirs
+    YAML.load_file(Pathname("~/.preflight").expand_path)["root_dirs"]
+  end
 
-dir = Pathname("~/src/3dna/nbuild").expand_path
-command = "git --git-dir=#{dir}/.git --work-tree=#{dir} fetch"
-out = command
-success = system command
-result = success ? "success" : "error"
-puts "#{result} => #{command}"
+  def run
+    root_dirs.each do |root|
+      path = Pathname(root).expand_path
+      next unless path.exist?
+      path.children.select { |path| path.directory? }.each do |path|
+        command = "git --git-dir=#{path}/.git --work-tree=#{path} fetch"
+        out = command
+        success = system command
+        result = success ? "success" : "error"
+        puts "#{result} => #{command}"
+      end
+    end
+  end
+end
+
+Preflight.new.run
