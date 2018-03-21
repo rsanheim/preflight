@@ -7,8 +7,21 @@ require "pathname"
 require "yaml"
 
 class Preflight
+  CONFIG_FILE = Pathname("~/.preflight").expand_path
+  DEFAULT_CONFIG = {
+    "root_dirs" => ["~/src"]
+  }
+
+  def config
+    if CONFIG_FILE.exist?
+      YAML.load_file(CONFIG_FILE)
+    else
+      DEFAULT_CONFIG
+    end
+  end
+
   def root_dirs
-    YAML.load_file(Pathname("~/.preflight").expand_path)["root_dirs"]
+    config["root_dirs"]
   end
 
   def run
