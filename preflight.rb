@@ -25,10 +25,10 @@ class Preflight
   end
 
   def run
-    root_dirs.each do |root|
+    root_dirs.sort.each do |root|
       path = Pathname(root).expand_path
       next unless path.exist?
-      path.children.select { |path| path.directory? }.each do |path|
+      path.children.sort.select { |path| path.directory? }.each do |path|
         command = "git --git-dir=#{path}/.git --work-tree=#{path} fetch"
         out = command
         success = system command
