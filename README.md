@@ -23,8 +23,7 @@ root_dirs:
 
 ```
 
-Use launchd to run every n minutes on Mac - change the interval in the plist
-as you see fit.
+You can use launchd to run every n minutes on Mac - change the interval in the plist as you see fit.
 
     ln -s ~/src/preflight/com.robsanheim.preflight.plist ~/Library/LaunchAgents/
     launchctl load -w ~/Library/LaunchAgents/com.robsanheim.preflight.plist
@@ -34,6 +33,6 @@ Verify its running:
     launchctl list | grep preflight
 
 
-## Uninstall
+## Uninstall from launchd
 
     launchctl unload -w ~/Library/LaunchAgents/com.robsanheim.preflight.plist
